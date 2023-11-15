@@ -11,6 +11,9 @@ router.get("/me",authenticateJwt , async (req,res)=>{
     const admin = await Admin.findOne({
         username:req.user.username
     });
+    if(!admin){
+      res.status(403).json({msg:"Admin Not Found!!!"});
+    }
     res.json({
         username:admin.username
     });
