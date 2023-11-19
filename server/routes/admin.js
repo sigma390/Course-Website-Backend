@@ -5,7 +5,7 @@ const {User,Course,Admin} = require("../db");
 const { SECRET } = require("../middleware/auth");
 const { authenticateJwt } = require("../middleware/auth")
       
-const router = express.Router();
+const router = express.Router()
 
 router.get("/me",authenticateJwt , async (req,res)=>{
     const admin = await Admin.findOne({
